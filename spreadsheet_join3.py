@@ -2,7 +2,7 @@ import pandas as pd
 
 # Notes: need to install from Settings/Interpreter packages
 # Need  xlrd  and openpyxl
-# --
+# -
 
 # Load the input spreadsheets
 df_left = pd.read_excel(r'ss_left.xlsx')
