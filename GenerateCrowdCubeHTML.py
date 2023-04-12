@@ -1,7 +1,6 @@
 import pandas as pd
 import datetime
 import shutil
-import math
 
 # DEPENDENCIES - reading excel needs:
 # pip install xlrd
@@ -109,7 +108,7 @@ for index, row in df.iterrows():
 out_file.write('\n')
 out_file.write('    </div>   <!-- end of outer-grid items -->\n')
 out_file.write('\n')
-summary_value_line = "{0:,.2f}".format(total_value) + ' Invested, £' + "{0:,.2f}".format(total_outcome) + ' Returned'
+summary_value_line = "{0:,.2f}".format(total_value) + ' Invested / £' + "{0:,.2f}".format(total_outcome) + ' Returned'
 out_file.write('    <div><h1>' + str(total_count) + ' Investments : £' + summary_value_line+ '</h1></div>\n')
 out_file.write('\n')
 out_file.write('</div>   <!-- end of page-grid items -->\n')

@@ -92,17 +92,15 @@ body {
 }
     .inner-grid-platform a img {
         object-fit: cover;
-        max-width: auto;
+        max-width: 100%;
         max-height: 100%;
-        /* border-color: aqua;
-        border-style: solid;
-        border-width: 1px; */
     }
 
 .inner-grid-holder {
     grid-area: 1 / 2;
     font-size: 20px;
     text-align: right;
+    vertical-align: middle;
     text-size-adjust: auto;
 }
 .inner-grid-investment {
@@ -125,10 +123,6 @@ body {
         vertical-align: middle;
         max-width:100%;
         max-height: 100%;
-        /* border-color: red;
-        border-style: solid;
-        border-width: 1px;
-        vertical-align: middle; */
     }
 
 .inner-grid-since {
@@ -137,6 +131,7 @@ body {
     text-align: left;
     text-size-adjust: auto;
 }
+
 .inner-grid-amount {
     grid-area: 3 / 2;
     font-size: min(2.5vw,10px);
