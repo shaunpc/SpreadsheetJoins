@@ -63,12 +63,12 @@ for index, row in df.iterrows():
     r_holder = row['Who']
     r_invest_date_raw = row['Invest Date']
     r_invest_outcome = row['Outcome']
-    r_invest_outcome_date = row['Outcome Date']
+    r_invest_outcome_date_raw = row['Outcome Date']
     r_invest_outcome_value = row['Outcome Value']
     if pd.isnull(r_invest_date_raw):
         r_invest_date = "Status: " + r_status
     else:
-        r_invest_date = r_status + ": " + row['Invest Date'].to_pydatetime().strftime("%B %Y")
+        r_invest_date = "Invested : " + r_invest_date_raw.to_pydatetime().strftime("%b %Y")
     r_invest_value = "Value: £" + "{0:,.2f}".format(row['Value'])
     total_value += row['Value']
 
@@ -76,7 +76,8 @@ for index, row in df.iterrows():
         print('  > Processing: ' + r_company)
     else:
         print('  > Processing: ' + r_company + '  \t' + str(r_invest_outcome))
-        total_outcome += row['Outcome Value']
+        r_outcome_date = r_invest_outcome_date_raw.to_pydatetime().strftime("%b %Y")
+        total_outcome += r_invest_outcome_value
 
     out_file.write('\n')
     # figure out status to determine background cell style
@@ -92,7 +93,7 @@ for index, row in df.iterrows():
     out_file.write('            <div class="inner-grid-platform">\n')
     if not(pd.isna(r_platform_website)):
         out_file.write('                <a href="' + r_platform_website + '" target="_blank" rel="noopener noreferrer">\n')
-    out_file.write('                    <img src="'+ r_platform_image + '" title="' + r_platform + '">\n')
+    out_file.write('                    <img src="' + r_platform_image + '" title="' + r_platform + '">\n')
     if not(pd.isna(r_platform_website)):
         out_file.write('                </a>\n')
     out_file.write('            </div>\n')
@@ -104,6 +105,10 @@ for index, row in df.iterrows():
     out_file.write('            </div>\n')
     out_file.write('            <div class="inner-grid-since">' + r_invest_date + '</div>\n')
     out_file.write('            <div class="inner-grid-amount">' + r_invest_value + '</div>\n')
+    r_status_text = "Status: " + r_status
+    if not(pd.isna(r_invest_outcome)):
+        r_status_text += " / " + r_outcome_date + " / £" + "{0:,.2f}".format(r_invest_outcome_value)
+    out_file.write('            <div class="inner-grid-status">' + r_status_text + '</div>\n')
     out_file.write('        </div>  <!-- end of inner-grid items -->\n')
 
 out_file.write('\n')
