@@ -36,7 +36,7 @@ body {
 .inner-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 3vh minmax(200px, 15vh) 2vh;
+    grid-template-rows: 3vh minmax(225px, 10vh) 2vh;
     justify-content: center;
     border-color: blue;
     border-style: solid;
@@ -100,7 +100,6 @@ body {
     grid-area: 1 / 2;
     font-size: 20px;
     text-align: right;
-    vertical-align: middle;
     text-size-adjust: auto;
 }
 .inner-grid-investment {

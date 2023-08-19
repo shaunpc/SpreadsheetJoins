@@ -59,6 +59,7 @@ for index, row in df.iterrows():
     r_company = row['Company']
     r_company_website = row['Company Website']
     r_company_image = row['Company Image']
+    r_company_image_background = row['Background']
     r_holder = row['Who']
     r_invest_date_raw = row['Invest Date']
     r_invest_outcome = row['Outcome']
@@ -98,7 +99,7 @@ for index, row in df.iterrows():
     out_file.write('            <div class="inner-grid-holder">' + r_holder + '</div>\n')
     out_file.write('            <div class="inner-grid-investment">\n')
     out_file.write('                <a href="' + r_company_website + '" target="_blank" rel="noopener noreferrer">\n')
-    out_file.write('                    <img src="' + r_company_image + '" title="' + r_company + '">\n')
+    out_file.write('                    <img src="' + r_company_image + '" title="' + r_company + '" style="background-color:' + r_company_image_background + '">\n')
     out_file.write('                </a>\n')
     out_file.write('            </div>\n')
     out_file.write('            <div class="inner-grid-since">' + r_invest_date + '</div>\n')
